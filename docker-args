@@ -12,6 +12,7 @@ fi
 
 if [ ! -d "/mnt/volumes/dokku/$APP" ];then
   mkdir "/mnt/volumes/dokku/$APP"
+  chmod 777 "/mnt/volumes/dokku/$APP"
 fi
 
 echo "-v /mnt/volumes/dokku/$APP:/volume "
