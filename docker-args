@@ -1,0 +1,18 @@
+#!/bin/bash
+APP=$1
+
+if [ "$APP" == "" ];then
+  echo "No app supplied on command line" >&2
+  exit 2
+fi
+if [ ! -d "/home/dokku/$APP" ];then
+  echo "App $APP is not a valid dokku app" >&2
+  exit 2
+fi
+
+if [ ! -d "/mnt/volumes/dokku/$APP" ];then
+  mkdir "/mnt/volumes/dokku/$APP"
+fi
+
+echo "-v /mnt/volumes/dokku/$APP:/volume "
+
